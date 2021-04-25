@@ -1,0 +1,3 @@
+- after clone git response, you need:
+-- npm init-y
+-- npm i
