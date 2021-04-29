@@ -1,0 +1,63 @@
+<% include include/head%>
+
+<body>
+    <% include include/header%>
+
+    <div class="container">
+        <h1><%= content %></h1>
+        <div class="con-clock">
+            <div class="clock-number">
+                <div class="h" id="hh">00</div>
+                <span>:</span>
+                <div class="m" id="mm">00</div>
+                <span>:</span>
+                <div class="s" id="ss">00</div>
+            </div>
+            <div class="clock">
+                <div class="hour">
+                    <div class="hr" id="hr"></div>
+                </div>
+                <div class="min">
+                    <div class="mn" id="mn"></div>
+                </div>
+                <div class="sec">
+                    <div class="sc" id="sc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include include/footer%>
+    <script src="./js/main.js"></script>
+    <script>
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+        const txtH = document.querySelector('#hh'),
+            txtM = document.querySelector('#mm'),
+            txtS = document.querySelector('#ss');
+
+        setInterval(() => {
+
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+            txtH.innerHTML = formatTxt(day.getHours());
+            txtM.innerHTML = formatTxt(day.getMinutes());
+            txtS.innerHTML = formatTxt(day.getSeconds());
+            hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+
+        })
+        const formatTxt = function (n) {
+            if (n < 10) {
+                return '0' + n;
+            }
+            return n;
+        }
+    </script>
+</body>
+
+</html>

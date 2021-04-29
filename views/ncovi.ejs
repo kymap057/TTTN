@@ -1,0 +1,48 @@
+<% include include/head%>
+
+<body>
+    <% include include/header%>
+    <div class="container">
+        
+            <h1>THÔNG TIN COVID-19 VIỆT NAM</h1>
+            
+        <div class="covid-inf">
+            <p class="cv-inf1">Tổng ca nhiễm:<span><%= sum%></span></p>
+            <p class="cv-inf2">Đang điều trị:<span><%= st1%></span></p>
+            <p class="cv-inf3">Khỏi:<span><%= st2%></span></p>
+            <p class="cv-inf4">Tử vong:<span><%= st3%></span></p>
+        </div>
+        <div class="search-inf">
+            <input type="text" placeholder="Nhập Tỉnh/Thành phố" id="ncv-search">
+        </div>
+        <span style="font-style: italic;">(<%= description%>)</span>
+        <table class="table-scroll small-first-col">
+            <thead>
+                <tr>
+                    <th>bệnh nhân</th>
+                    <th>Tuổi</th>
+                    <th>Tỉnh/Thành phố</th>
+                    <th>Tình trạng</th>
+                    <th>Quốc tịch</th>
+                </tr>
+            </thead>
+            <tbody class="body-half-screen" id="data-tbl">
+                <% lists.forEach(x=>{ %>
+                <tr class="ncv-data">
+                    <td><%= x.bn%></td>
+                    <td><%= x.age%></td>
+                    <td><%= x.city%></td>
+                    <td><%= x.status%></td>
+                    <td><%= x.country%></td>
+                </tr>
+                <% }); %>
+            </tbody>
+            <tbody class="body-half-screen" id="data-search"></tbody>
+        </table>
+    </div>
+    <% include include/footer%>
+    <script src="./js/main.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+
+</html>

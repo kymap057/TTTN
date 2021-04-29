@@ -1,0 +1,17 @@
+<% include include/head%>
+<body>
+    <% include include/header%>
+	<div class="container">
+        <h1>Hello node js..!</h1>
+        <p><%= content %></p>
+        <ul class="about-contact">
+            <% lists.forEach((list)=>{ %>
+            <li><a href="<%= list.link %>" target="_blank"><i class="<%= list.icon%>"></i>
+                <%= list.name %> : <%= list.text%></a></li>
+            <% }); %>
+        </ul>
+    </div>
+    <% include include/footer%>
+    <script src="./js/main.js"></script>
+</body>
+</html>

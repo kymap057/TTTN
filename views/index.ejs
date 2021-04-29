@@ -1,0 +1,35 @@
+<% include include/head%>
+
+<body>
+    <% include include/header%>
+    <div class="container">
+        <!-- <div class="outer">
+            <h3>Hoàng Kỳ Node.js</h3>
+            <h1>
+                <span class="old">Weather App</span>
+                <span class="new">node.js</span>
+            </h1>
+        </div> -->
+        <h1><%= content%></h1>
+        <span>(<%= description%>)</span>
+        <div class="newspapers">
+            <% data.forEach(x =>{%>
+            <div class="newspaper-inf">
+                <img src="<%= x.thumbnail_url%>" alt=" vnexpress.net" >
+                <div class="inf-new">
+                    <a href="<%= x. share_url%>" target="_blank" class="link-new">
+                        <h3><%= x.title%></h3>
+                    </a>
+                    <p ><%= x.lead%></p>
+                </div>
+            </div>
+            <hr  width="70%" align="center" />
+            <%});%>
+        </div>
+    </div>
+    
+    <% include include/footer%>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
