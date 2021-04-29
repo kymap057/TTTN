@@ -9,5 +9,5 @@
 ```
 ## run lab
 ```bash
-     node <lab+ib>.js
+     node <lab+id>.js
 ```
