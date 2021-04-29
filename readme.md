@@ -3,3 +3,11 @@
      npm init-y
      npm i
 ```
+## run app
+```bash
+     npm start
+```
+## run lab
+```bash
+     node <lab+ib>.js
+```
